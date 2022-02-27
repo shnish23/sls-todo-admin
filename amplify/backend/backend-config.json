@@ -30,5 +30,27 @@
         ]
       }
     }
+  },
+  "api": {
+    "slstodoadmin": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authslstodoadmin242f0f4d"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ]
+        }
+      },
+      "rdsInit": true
+    }
   }
 }

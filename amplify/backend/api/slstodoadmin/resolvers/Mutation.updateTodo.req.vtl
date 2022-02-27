@@ -1,0 +1,9 @@
+#set( $updateList = {} )
+#foreach( $entry in $ctx.args.updateTodoInput.keySet() )
+  #set( $discard = $updateList.put($entry, "'$ctx.args.updateTodoInput[$entry]'") )
+#end
+#set( $update = $updateList.toString().replace("{","").replace("}","") )
+{
+  "version": "2018-05-29",
+  "statements":   ["UPDATE Todo SET $update WHERE id='$ctx.args.updateTodoInput.id'", "SELECT * FROM Todo WHERE id='$ctx.args.updateTodoInput.id'"]
+}

@@ -1,0 +1,48 @@
+input AMPLIFY {
+  globalAuthRule: AuthRule = {allow: public}
+}
+
+input CreateTodoInput {
+  id: String!
+  text: String!
+  checked: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Todo {
+  id: String!
+  text: String!
+  checked: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+input UpdateTodoInput {
+  id: String!
+  text: String
+  checked: String
+  createdAt: String
+  updatedAt: String
+}
+
+type Mutation {
+  deleteTodo(id: String!): Todo
+  createTodo(createTodoInput: CreateTodoInput!): Todo
+  updateTodo(updateTodoInput: UpdateTodoInput!): Todo
+}
+
+type Query {
+  getTodo(id: String!): Todo
+  listTodos: [Todo]
+}
+
+type Subscription {
+  onCreateTodo: Todo @aws_subscribe(mutations: ["createTodo"])
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}

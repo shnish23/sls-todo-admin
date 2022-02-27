@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "slstodoadmin",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/workspaces/sls-todo-admin/amplify/backend/api/slstodoadmin/schema.graphql",
+    "defaultAuthType": {
+      "mode": "AMAZON_COGNITO_USER_POOLS",
+      "cognitoUserPoolId": "authslstodoadmin242f0f4d"
+    },
+    "additionalAuthTypes": [
+      {
+        "mode": "AWS_IAM"
+      }
+    ]
+  }
+}
