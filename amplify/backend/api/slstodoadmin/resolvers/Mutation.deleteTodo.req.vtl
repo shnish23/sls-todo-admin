@@ -1,4 +1,4 @@
 {
   "version": "2018-05-29",
-  "statements":   ["SELECT * FROM Todo WHERE id='$ctx.args.id'", "DELETE FROM Todo WHERE id='$ctx.args.id'"]
+  "statements":   ["SELECT IF(EXISTS( SELECT * FROM Todo WHERE id = '$ctx.args.id' ), 1, 0) AS count", "DELETE FROM Todo WHERE id='$ctx.args.id'"]
 }

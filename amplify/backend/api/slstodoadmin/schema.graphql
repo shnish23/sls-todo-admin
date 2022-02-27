@@ -1,5 +1,9 @@
 input AMPLIFY {
-  globalAuthRule: AuthRule = {allow: public}
+  globalAuthRule: AuthRule = { allow: public }
+}
+
+type Result @aws_iam {
+  count: Int!
 }
 
 input CreateTodoInput {
@@ -10,7 +14,7 @@ input CreateTodoInput {
   updatedAt: String!
 }
 
-type Todo {
+type Todo @aws_iam {
   id: String!
   text: String!
   checked: String!
@@ -27,9 +31,9 @@ input UpdateTodoInput {
 }
 
 type Mutation {
-  deleteTodo(id: String!): Todo
-  createTodo(createTodoInput: CreateTodoInput!): Todo
-  updateTodo(updateTodoInput: UpdateTodoInput!): Todo
+  deleteTodo(id: String!): Result @aws_iam
+  createTodo(createTodoInput: CreateTodoInput!): Todo @aws_iam
+  updateTodo(updateTodoInput: UpdateTodoInput!): Todo @aws_iam
 }
 
 type Query {

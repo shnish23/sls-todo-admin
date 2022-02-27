@@ -99,3 +99,53 @@ GraphQL schema compiled successfully.
 
 Edit your schema at /workspaces/sls-todo-admin/amplify/backend/api/slstodoadmin/schema.graphql or place .graphql files in a directory at /workspaces/sls-todo-admin/amplify/backend/api/slstodoadmin/schema```
 ````
+
+## Functions 設定
+
+```console
+amplify add function
+```
+
+実行ログ
+
+```console
+? Select which capability you want to add: Lambda function (serverless function)
+? Provide an AWS Lambda function name: syncTodo
+? Choose the runtime that you want to use: NodeJS
+? Choose the function template that you want to use: Lambda trigger
+? What event source do you want to associate with Lambda trigger? Amazon DynamoDB Stream
+? Choose a DynamoDB event source option Provide the ARN of DynamoDB stream directly
+? Provide the ARN of Amazon DynamoDB stream arn:aws:dynamodb:ap-northeast-1:XXXXXXXXXXXX:table/sls-todo-dev/stream/2022-02-27T14:00:46.875
+
+Available advanced settings:
+- Resource access permissions
+- Scheduled recurring invocation
+- Lambda layers configuration
+- Environment variables configuration
+- Secret values configuration
+
+? Do you want to configure advanced settings? Yes
+? Do you want to access other resources in this project from your Lambda function? Yes
+? Select the categories you want this function to have access to. api
+? Select the operations you want to permit on slstodoadmin Mutation
+
+You can access the following resource attributes as environment variables from your Lambda function
+        API_SLSTODOADMIN_GRAPHQLAPIENDPOINTOUTPUT
+        API_SLSTODOADMIN_GRAPHQLAPIIDOUTPUT
+        ENV
+        REGION
+? Do you want to invoke this function on a recurring schedule? No
+? Do you want to enable Lambda layers for this function? No
+? Do you want to configure environment variables for this function? No
+? Do you want to configure secret values this function can access? No
+? Do you want to edit the local lambda function now? No
+Successfully added resource syncTodo locally.
+
+Next steps:
+Check out sample function code generated in <project-dir>/amplify/backend/function/syncTodo/src
+"amplify function build" builds all of your functions currently in the project
+"amplify mock function <functionName>" runs your function locally
+To access AWS resources outside of this Amplify app, edit the /workspaces/sls-todo-admin/amplify/backend/function/syncTodo/custom-policies.json
+"amplify push" builds all of your local backend resources and provisions them in the cloud
+"amplify publish" builds all of your local backend and front-end resources (if you added hosting category) and provisions them in the cloud
+```

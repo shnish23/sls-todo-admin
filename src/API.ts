@@ -2,8 +2,12 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type Todo = {
-  __typename: "Todo",
+export type Result = {
+  __typename: "Result",
+  count: number,
+};
+
+export type CreateTodoInput = {
   id: string,
   text: string,
   checked: string,
@@ -11,7 +15,8 @@ export type Todo = {
   updatedAt: string,
 };
 
-export type CreateTodoInput = {
+export type Todo = {
+  __typename: "Todo",
   id: string,
   text: string,
   checked: string,
@@ -33,12 +38,8 @@ export type DeleteTodoMutationVariables = {
 
 export type DeleteTodoMutation = {
   deleteTodo?:  {
-    __typename: "Todo",
-    id: string,
-    text: string,
-    checked: string,
-    createdAt: string,
-    updatedAt: string,
+    __typename: "Result",
+    count: number,
   } | null,
 };
 

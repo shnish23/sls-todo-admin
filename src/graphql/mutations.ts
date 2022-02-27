@@ -5,11 +5,7 @@
 export const deleteTodo = /* GraphQL */ `
   mutation DeleteTodo($id: String!) {
     deleteTodo(id: $id) {
-      id
-      text
-      checked
-      createdAt
-      updatedAt
+      count
     }
   }
 `;
