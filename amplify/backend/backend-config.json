@@ -1,1 +1,8 @@
-{}
+{
+  "custom": {
+    "auroraServerless": {
+      "service": "customCDK",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}
